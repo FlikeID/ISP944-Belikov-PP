@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://kdu5blii012n"]
+
+[ext_resource type="Script" path="res://interface/element/element.gd" id="1_wqend"]
+[ext_resource type="Texture2D" uid="uid://7brdnsakuf3h" path="res://no_img.svg" id="2_woy4b"]
+
+[node name="PC" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 70)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+script = ExtResource("1_wqend")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HSC" type="HSplitContainer" parent="MC"]
+layout_mode = 2
+split_offset = 120
+dragger_visibility = 1
+
+[node name="MC" type="MarginContainer" parent="MC/HSC"]
+layout_mode = 2
+
+[node name="image" type="TextureRect" parent="MC/HSC/MC"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_woy4b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBC" type="VBoxContainer" parent="MC/HSC"]
+layout_mode = 2
+
+[node name="main_lable" type="Label" parent="MC/HSC/VBC"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "dsdafsdfasdfasdfasdfadsf"
+autowrap_mode = 3
+
+[node name="desc_lable" type="RichTextLabel" parent="MC/HSC/VBC"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "dsdafsdfa[s]sdfa[/s]sdfasdfadsf"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="button_container" type="HBoxContainer" parent="MC/HSC/VBC"]
+unique_name_in_owner = true
+layout_mode = 2

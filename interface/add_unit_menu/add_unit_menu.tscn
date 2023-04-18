@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://baeqfcfpvx8pm"]
+
+[ext_resource type="Script" path="res://interface/add_unit_menu/add_unit_menu.gd" id="1_7qbpf"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y22ox"]
+
+[node name="CC" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_7qbpf")
+
+[node name="P" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="P"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="ok_menu" type="VBoxContainer" parent="P/MC"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="message_lable" type="Label" parent="P/MC/ok_menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Chancellery add successfully "
+
+[node name="MC" type="MarginContainer" parent="P/MC/ok_menu"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBC" type="HBoxContainer" parent="P/MC/ok_menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="cancel" type="Button" parent="P/MC/ok_menu/HBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ok"
+
+[node name="add_another" type="Button" parent="P/MC/ok_menu/HBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add another"
+
+[node name="add_menu" type="VBoxContainer" parent="P/MC"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="unit" type="Label" parent="P/MC/add_menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Unit"
+
+[node name="name_label" type="Label" parent="P/MC/add_menu"]
+layout_mode = 2
+text = "Name"
+
+[node name="name_input" type="LineEdit" parent="P/MC/add_menu"]
+unique_name_in_owner = true
+layout_mode = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="image_label" type="Label" parent="P/MC/add_menu"]
+layout_mode = 2
+text = "Image"
+
+[node name="HSC" type="HSplitContainer" parent="P/MC/add_menu"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="dep_image" type="TextureRect" parent="P/MC/add_menu/HSC"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("ImageTexture_y22ox")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBC" type="VBoxContainer" parent="P/MC/add_menu/HSC"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="image_lable" type="Label" parent="P/MC/add_menu/HSC/VBC"]
+layout_mode = 2
+text = "Deafault image"
+text_overrun_behavior = 3
+text_direction = 2
+
+[node name="select_image" type="Button" parent="P/MC/add_menu/HSC/VBC"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Select image"
+
+[node name="MC" type="MarginContainer" parent="P/MC/add_menu"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="error_lable" type="Label" parent="P/MC/add_menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Error"
+autowrap_mode = 3
+
+[node name="HBC" type="HBoxContainer" parent="P/MC/add_menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="add" type="Button" parent="P/MC/add_menu/HBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add"
+
+[node name="cancel" type="Button" parent="P/MC/add_menu/HBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 1
+title = "Open a File"
+size = Vector2i(615, 360)
+mode = 2
+ok_button_text = "Открыть"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.jpg", "*.png", "*.bmp", "*.tga", "*webp")
+
+[connection signal="pressed" from="P/MC/ok_menu/HBC/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="P/MC/ok_menu/HBC/add_another" to="." method="_on_add_another_pressed"]
+[connection signal="pressed" from="P/MC/add_menu/HSC/VBC/select_image" to="." method="_on_select_image_pressed"]
+[connection signal="pressed" from="P/MC/add_menu/HBC/add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="P/MC/add_menu/HBC/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

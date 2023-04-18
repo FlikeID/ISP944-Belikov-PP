@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ihhwucqog5vi"]
+
+[ext_resource type="Script" path="res://interface/element/button.gd" id="1_psw14"]
+
+[node name="open_button" type="Button"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+size_flags_horizontal = 0
+text = "Open"
+script = ExtResource("1_psw14")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcj3nwkm1ucj4"]
+
+[ext_resource type="Script" path="res://interface/units_menu/units_menu.gd" id="1_as4et"]
+[ext_resource type="PackedScene" uid="uid://kdu5blii012n" path="res://interface/element/element.tscn" id="2_fvdnr"]
+
+[node name="MC" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("1_as4et")
+
+[node name="PC" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="MC" type="MarginContainer" parent="PC"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PC/MC"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PC/MC/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="SC" type="ScrollContainer" parent="PC/MC/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="elements_list" type="VBoxContainer" parent="PC/MC/VBoxContainer/SC"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="element" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element3" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element4" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element5" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element6" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element7" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element8" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element2" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="element9" parent="PC/MC/VBoxContainer/SC/elements_list" instance=ExtResource("2_fvdnr")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/MC/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="back" type="Button" parent="PC/MC/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="PC/MC/VBoxContainer/back" to="." method="_on_back_pressed"]
